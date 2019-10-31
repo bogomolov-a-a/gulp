@@ -1,0 +1,101 @@
+{
+  "game": {
+    "home": {
+      "text": [
+        {
+          "msg": "Встал с утра...",
+          "color": "Blue"
+        },
+        {
+          "pause": 1000
+        },
+        {
+          "msg": "Открыл Холодильник...",
+          "color": "Yellow"
+        },
+        {
+          "pause": 2000,
+          "sound": "Sounds/sad.wav"
+        },
+        {
+          "msg": "Чего-то не хватает...",
+          "color": "Red"
+        },
+        {
+          "pause": 1000
+        }
+      ],
+      "edges": [
+        {
+          "text": [
+            {
+              "msg": "Пошел за хлебом",
+              "color": "Green"
+            },
+            {
+              "sound": "Sounds/market.wav",
+              "pause": 5000
+            }
+          ],
+          "nextScene": "market"
+        },
+        {
+          "text": [
+            {
+              "msg": "Ем хлеб",
+              "color": "Green"
+            },
+            {
+              "sound": "Sounds/eat.wav",
+              "pause": 5000
+            }
+          ],
+          "nextScene": "eatBread",
+          "requirements": {
+            "bread": 1
+          },
+          "priority": 1
+        }
+      ]
+    },
+    "market": {
+      "text": [
+        {
+          "text": "Купил хлеб. Пошел домой. ",
+          "color": "Blue"
+        },
+        {
+          "sound": "Sounds/market.wav",
+          "pause": 5000
+        },
+        {
+          "text": "Лег спать",
+          "color": "Cyan"
+        },
+        {
+          "sound": "Sounds/sleep.wav",
+          "pause": 5000
+        }
+      ],
+      "edges": [
+        {
+          "nextScene": "home"
+        }
+      ],
+      "newItems": {
+        "bread": 1
+      }
+    },
+    "eatBread": {
+      "newItems": {
+        "bread": -1
+      },
+      "edges": [
+        {
+          "nextScene": "home"
+        }
+      ]
+    }
+  },
+  "begin": "home"
+}
