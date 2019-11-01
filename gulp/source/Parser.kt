@@ -31,7 +31,7 @@ fun parse(f: File): Scene {
         Requirement(this.map { (it.key.toString().toItem()) to it.value.toString().toInt() }.toMap())
 
     fun JSONObject.toEvent(): Event =
-        if (this.containsKey("text"))
+        if (this.containsKey("msg"))
             Message(
                 this["msg"].toString(),
                 this.getOrDefault("color", "Default").toString(),
