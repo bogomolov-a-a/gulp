@@ -39,7 +39,7 @@ fun parse(f: File): Scene {
             )
         else
             Option(
-                this.getOrDefault("pause", 0) as Long,
+                this.getOrDefault("pause", 0L) as Long,
                 if (this["sound"] == null) null else Sound(File(this["sound"].toString()))
             )
 
